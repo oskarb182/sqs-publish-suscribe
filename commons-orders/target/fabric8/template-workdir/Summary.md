@@ -1,1 +1,0 @@
-Simple standalone Java Container (fat jar)
