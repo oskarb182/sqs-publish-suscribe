@@ -12,12 +12,12 @@ public class SQSUtil {
 	 * @param queueUrl
 	 * @param messageBoddy
 	 */
-	public static void sendMessage(String queueUrl, String messageBoddy) {
+	public static void sendMessage(String queueUrl, Object object) {
 
 		AmazonSQS sqs = AmazonSQSClientBuilder.defaultClient();
 
 		SendMessageRequest send_msg_request = new SendMessageRequest().withQueueUrl(queueUrl).withDelaySeconds(5);
-		send_msg_request.withMessageBody(messageBoddy);
+		send_msg_request.withMessageBody(JsonUtil.object2Json(object));
 		sqs.sendMessage(send_msg_request);
 
 	}
