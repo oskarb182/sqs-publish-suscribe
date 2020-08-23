@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.aws.messaging.core.QueueMessagingTemplate;
 import org.springframework.cloud.aws.messaging.listener.SqsMessageDeletionPolicy;
 import org.springframework.cloud.aws.messaging.listener.annotation.SqsListener;
 import org.springframework.messaging.handler.annotation.Header;
@@ -18,9 +17,6 @@ import com.sagas.choreography.consumers.services.ConsumerService;
 @RequestMapping("/consumers")
 public class ConsumerController {
 private List<String> QueueList = new ArrayList<String>();
-	
-	@Autowired
-	private QueueMessagingTemplate queueMessagingTemplate;
 	
 	@Autowired
 	private ConsumerService consumerService;

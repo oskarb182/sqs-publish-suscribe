@@ -25,7 +25,7 @@ public class ConsumerServiceImpl implements ConsumerService {
 		consumerState.setDescription("usuario aprobado");
 		consumer.setState(consumerState);
 		SQSUtil.sendMessage(queueUrl, consumer);
-		
+		System.out.println("Mensaje enviado = " + consumer.getName());
 		return consumer;
 	}
 
