@@ -14,7 +14,6 @@ public class ConsumerServiceImpl implements ConsumerService {
 	@Value("${consumer.config.queue}")
 	private String queueUrl;
 	
-	@Override
 	public Consumer consumerVerified() {
 		
 		Consumer consumer= new Consumer();
