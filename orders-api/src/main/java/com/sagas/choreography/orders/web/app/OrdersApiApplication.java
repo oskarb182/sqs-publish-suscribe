@@ -1,13 +1,13 @@
-package com.sagas.choreography.web.app;
+package com.sagas.choreography.orders.web.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KitchensApiApplication {
+public class OrdersApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KitchensApiApplication.class, args);
+		SpringApplication.run(OrdersApiApplication.class, args);
 	}
 
 }
