@@ -1,4 +1,4 @@
-package com.sagas.choreography.consumers.web.app;
+package com.sagas.choreography.consumers.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
