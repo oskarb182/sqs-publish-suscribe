@@ -11,8 +11,8 @@ import com.sagas.choreography.util.SQSUtil;
 @Service
 public class ConsumerServiceImpl implements ConsumerService {
 
-//	@Value("${consumer.config.queue}")
-//	private String queueUrl;
+	@Value("${consumer.events}")
+	private String queueUrl;
 	
 	public Consumer consumerVerified() {
 		
@@ -23,7 +23,7 @@ public class ConsumerServiceImpl implements ConsumerService {
 		consumerState.setState(ConsumerStateEnum.APPROVED);
 		consumerState.setDescription("usuario aprobado");
 		consumer.setState(consumerState);
-		//SQSUtil.sendMessage(queueUrl, consumer);
+		SQSUtil.sendMessage(queueUrl, consumer);
 		System.out.println("Mensaje enviado = " + consumer.getName());
 		return consumer;
 	}

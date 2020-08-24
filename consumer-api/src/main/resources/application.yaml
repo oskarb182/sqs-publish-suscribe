@@ -4,7 +4,7 @@ spring:
     - org.springframework.cloud.aws.autoconfigure.context.ContextStackAutoConfiguration
     
 server:
-  port: 9001
+  port: 9002
   
 cloud:
   aws: 
@@ -14,5 +14,7 @@ cloud:
     end-point:
       uri: https://sqs.us-east-1.amazonaws.com/247679585544/order-events
     queueSQS: order-events
+
+consumer.events: https://sqs.us-east-1.amazonaws.com/247679585544/consumer-events
 
 
