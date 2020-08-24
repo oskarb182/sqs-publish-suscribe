@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.sagas.choreography.consumer.Consumer;
 import com.sagas.choreography.consumer.ConsumerState;
 import com.sagas.choreography.consumer.ConsumerStateEnum;
+import com.sagas.choreography.orders.Order;
 import com.sagas.choreography.util.SQSUtil;
 
 @Service
@@ -14,7 +15,7 @@ public class ConsumerServiceImpl implements ConsumerService {
 	@Value("${consumer.events}")
 	private String queueUrl;
 	
-	public Consumer consumerVerified() {
+	public Consumer consumerVerified(Order order) {
 		
 		Consumer consumer= new Consumer();
 		consumer.setName("Juan perez");

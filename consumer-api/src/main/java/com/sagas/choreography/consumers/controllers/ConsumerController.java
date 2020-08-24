@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sagas.choreography.consumers.services.ConsumerService;
+import com.sagas.choreography.orders.Order;
+import com.sagas.choreography.util.JsonUtil;
 
 @RestController
 @RequestMapping("/consumers")
 public class ConsumerController {
-private List<String> QueueList = new ArrayList<String>();
-	
+
 	@Autowired
 	private ConsumerService consumerService;
 	
@@ -31,11 +32,10 @@ private List<String> QueueList = new ArrayList<String>();
 	
 	@SqsListener(value = "order-events", deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
 	public void onMessage(String serviceData, @Header("MessageId") String messageId, @Header("ApproximateFirstReceiveTimestamp") String approximateFirstReceiveTimestamp) {
-		if (! QueueList.contains(messageId)) {
-			QueueList.add(messageId);
-			System.out.println("Data (Standard) = " + serviceData + " MessageId = " + messageId);
-			consumerService.consumerVerified();
-		}
+		
+		System.out.println("Data (Standard) = " + serviceData + " MessageId = " + messageId);
+		Order order = (Order) JsonUtil.json2Object(serviceData, Order.class);
+		consumerService.consumerVerified(order);
 	}
 	
 	@PostMapping
