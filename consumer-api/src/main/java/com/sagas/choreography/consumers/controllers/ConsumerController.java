@@ -23,8 +23,8 @@ private List<String> QueueList = new ArrayList<String>();
 	@Autowired
 	private ConsumerService consumerService;
 	
-	@Value("${order.config.queue}")
-	private String sqsEndpoit;
+//	@Value("${order.config.queue}")
+//	private String sqsEndpoit;
 
 	@Autowired
 	private QueueMessagingTemplate queueMessagingTemplate;

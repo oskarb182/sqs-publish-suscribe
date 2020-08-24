@@ -14,16 +14,16 @@ public class SQSConfig {
 	
 	@Bean
 	public QueueMessagingTemplate queueMessagingTemplate () {
-		AmazonSQSAsync amazonSQSAsync;
-		amazonSQSAsync = amazonSQSAsync();
 		
-		return new QueueMessagingTemplate(amazonSQSAsync);
+		
+		
+		return new QueueMessagingTemplate(amazonSQSAsync());
 	}
 	
 	@Bean
 	@Primary
 	public AmazonSQSAsync amazonSQSAsync () {
-        return AmazonSQSAsyncClientBuilder.standard().withRegion(Regions.US_EAST_1).build();
+        return AmazonSQSAsyncClientBuilder.standard().build();
 	}
 }
 
